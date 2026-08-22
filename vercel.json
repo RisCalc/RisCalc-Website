@@ -1,0 +1,4 @@
+{
+  "buildCommand": "jekyll build",
+  "outputDirectory": "_site"
+}
