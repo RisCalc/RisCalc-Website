@@ -25,6 +25,12 @@ RisCalc helps professional traders:
 
 ---
 
+## Google Integration
+
+RisCalc uses **Google Sign-In** to allow users to securely authenticate, save their calculation history, sync trade journals across devices, and access their encrypted account data. This secure integration ensures your trading data remains protected and accessible wherever you trade.
+
+---
+
 ## Key Features
 
 ### Institutional Position Sizing
