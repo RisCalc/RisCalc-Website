@@ -1,20 +1,27 @@
-# RisCalc - Professional Trading Risk Management
+---
+layout: default
+title: RisCalc - Professional Trading Risk Management
+description: Institutional-grade risk management, trade journaling, and psychology analytics for serious traders
+---
 
-**Institutional-grade risk management, trade journaling, and psychology analytics for serious traders.**
+# RisCalc
+
+## Professional Trading Risk Management & Psychology Analytics
+
+**RisCalc is an institutional-grade mobile application for serious traders who prioritize risk management, trade journaling, and psychological mastery.**
 
 ---
 
-## About RisCalc
+## Purpose of RisCalc
 
-RisCalc is a professional-grade mobile application designed for serious traders who prioritize risk management and psychological mastery. 
+RisCalc helps professional traders:
+- **Size positions with institutional precision** using real-time risk calculators
+- **Track trading performance** with equity curves and advanced statistics
+- **Monitor psychological discipline** by tagging emotional states and identifying behavioral patterns
+- **Maintain compliance** with drawdown limits and risk rules for funded accounts
+- **Journal trades professionally** with rationale, technical setups, and emotional context
 
-**What RisCalc Does:**
-- Helps traders size positions with institutional precision
-- Tracks trading performance and equity growth
-- Monitors psychological discipline and emotional patterns
-- Keeps you compliant with risk rules and drawdown limits
-
-Designed for traders across Forex, Stocks, Crypto, and Commodities markets.
+**Supported Markets:** Forex, Stocks, Crypto, and Commodities
 
 ---
 
@@ -51,17 +58,28 @@ Stay compliant with daily loss limits and total drawdown rules. RisCalc is the p
 
 ---
 
+## About RisCalc
+
+RisCalc is designed for traders who understand that successful trading requires three pillars:
+
+1. **Risk Management** - Proper position sizing prevents catastrophic losses
+2. **Data-Driven Decisions** - Track what works and eliminate what doesn't
+3. **Psychology Mastery** - Control emotions and build consistent discipline
+
+Whether you're trading Forex, Stocks, Crypto, or Commodities, RisCalc gives you the tools professional traders need to survive and thrive in the markets.
+
+---
+
 ## Download RisCalc
 
 Trade with institutional discipline and psychological mastery.
 
-[Download RisCalc from Google Play Store](https://play.google.com/store/apps/details?id=com.riscalc)
+**[Download RisCalc from Google Play Store](https://play.google.com/store/apps/details?id=com.riscalc)**
 
 ---
 
-## Privacy & Legal
+## Support & Legal
 
-- [Privacy Policy](https://privacy.riscalctrading.com/)
-- [Terms of Service](https://terms.riscalctrading.com/)
-
-**Support Email:** devriscalc@gmail.com
+- **Email:** devriscalc@gmail.com
+- **Privacy Policy:** https://privacy.riscalctrading.com/
+- **Terms of Service:** https://terms.riscalctrading.com/
