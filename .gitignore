@@ -1,0 +1,12 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+*.gem
+*.gemspec
+Gemfile.lock
+node_modules/
+.vercel
+.env
+.env.local
+.env.*.local
