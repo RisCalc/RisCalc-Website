@@ -2,6 +2,7 @@ title: RisCalc
 description: Professional Trading Risk Management & Psychology Analytics - Institutional-grade risk management, trade journaling, and psychology analytics for serious traders
 theme: jekyll-theme-minimal
 url: "https://www.riscalctrading.com"
+baseurl: ""
 author:
   name: "RisCalc"
   email: "devriscalc@gmail.com"
