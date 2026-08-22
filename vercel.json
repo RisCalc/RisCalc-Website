@@ -1,4 +1,7 @@
 {
-  "buildCommand": "jekyll build",
-  "outputDirectory": "_site"
+  "buildCommand": "bash build.sh",
+  "outputDirectory": "_site",
+  "env": {
+    "JEKYLL_ENV": "production"
+  }
 }
