@@ -3,75 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 1. CRITICAL: Exact App Name in Title and Metadata -->
-    <title>RisCalc - Advanced Risk Calculation and Portfolio Modeling</title>
-    <meta name="description" content="RisCalc is a risk calculation application that helps traders and financial analysts evaluate portfolio risk, calculate position sizing, and manage exposure.">
-    <meta name="application-name" content="RisCalc">
-    
-    <!-- Open Graph tags for social/crawler indexing -->
-    <meta property="og:title" content="RisCalc">
-    <meta property="og:site_name" content="RisCalc">
-    <meta property="og:description" content="Evaluate portfolio risk and calculate position sizing with RisCalc.">
-    <meta property="og:url" content="https://www.riscalctrading.com">
-    <meta property="og:type" content="website">
-
+    <title>RisCalc - Advanced Risk Calculation & Portfolio Modeling</title>
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
-            color: #333;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f9f9f9;
         }
-        header {
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 20px;
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.025em;
+            background: linear-gradient(to right, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
             margin-bottom: 30px;
         }
-        h1 {
-            color: #1a73e8;
-            margin: 0;
-            font-size: 2.5em;
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
         }
-        .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-top: 5px;
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            padding: 30px;
+            border-radius: 10px;
+            transition: border-color 0.2s;
+        }
+        .feature-card:hover {
+            border-color: var(--primary);
+        }
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #f1f5f9;
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
         section {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            margin-top: 60px;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #334155;
         }
-        h2 {
-            color: #202124;
-            border-bottom: 2px solid #1a73e8;
-            padding-bottom: 8px;
-            margin-top: 0;
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+            color: #f1f5f9;
         }
-        ul {
-            padding-left: 20px;
+        section p, section li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
         }
-        li {
-            margin-bottom: 10px;
+        section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        section li::before {
+            content: "✓ ";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 8px;
         }
         footer {
             text-align: center;
-            margin-top: 40px;
+            padding: 40px 20px;
+            border-top: 1px solid #334155;
+            color: var(--text-muted);
             font-size: 0.9em;
-            color: #666;
-            border-top: 1px solid #eaeaea;
-            padding-top: 20px;
         }
         footer a {
-            color: #1a73e8;
+            color: var(--primary);
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 8px;
         }
         footer a:hover {
             text-decoration: underline;
@@ -80,54 +131,53 @@
 </head>
 <body>
 
-    <header>
-        <!-- 2. CRITICAL: Prominent H1 Tag with Exact App Name -->
-        <h1>RisCalc</h1>
-        <p class="subtitle">Empowering traders with precise risk calculation and exposure metrics.</p>
-    </header>
+    <div class="hero">
+        <h1>Master Your Trading Risk</h1>
+        <p>Empowering traders and risk managers with precise quantitative models, optimal position sizing, and real-time portfolio metrics.</p>
+        <a href="#about" class="cta-button">Get Started</a>
+    </div>
 
-    <main>
-        <!-- 3. CRITICAL: Clear Explanation of the App's Purpose -->
-        <section>
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Value at Risk (VaR)</h3>
+                <p>Quantify potential portfolio losses accurately using advanced statistical historical and parametric models.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Position Sizing</h3>
+                <p>Optimize exposure limits and capital allocation dynamically based on your custom risk parameters.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Stress Testing</h3>
+                <p>Simulate market volatility extremes and drawdowns before deploying capital into live markets.</p>
+            </div>
+        </div>
+
+        <section id="about">
             <h2>About RisCalc</h2>
-            <p>
-                <strong>RisCalc</strong> is a comprehensive risk calculation and modeling application built for traders, investors, and risk managers. Our platform helps you quantify financial exposure, calculate optimal position sizing based on custom risk parameters, and simulate market volatility.
-            </p>
-            <p>
-                By providing immediate access to key statistical risk metrics (such as Value at Risk, Drawdown models, and Sharpe ratios), RisCalc assists you in making data-driven decisions to preserve capital and optimize portfolio performance.
-            </p>
+            <p>RisCalc is a comprehensive risk calculation and modeling application built specifically for professional traders, quantitative analysts, and risk managers.</p>
+            <p>By delivering immediate access to key statistical metrics—including Sharpe ratios, drawdown structures, and volatility curves—RisCalc ensures your capital stays protected while maximizing portfolio performance.</p>
         </section>
 
-        <!-- 4. CRITICAL: Explicitly Declare Google Integration Purpose -->
         <section>
-            <h2>How We Use Google Services</h2>
-            <p>
-                RisCalc integrates with Google services to streamline your workflow:
-            </p>
+            <h2>Secure Google Integration</h2>
+            <p>RisCalc integrates securely with your workflow:</p>
             <ul>
-                <li>
-                    <strong>Google Sign-In:</strong> We use Google Identity Services to allow you to securely log in to your RisCalc account without needing to maintain separate passwords.
-                </li>
-                <li>
-                    <strong>Data Sync (If applicable):</strong> We securely access only the specific scopes you authorize to allow you to save and export your risk reports directly into your personal files.
-                </li>
+                <li><strong>Google Sign-In:</strong> Secure authentication via Google Identity Services without managing extra passwords.</li>
+                <li><strong>Data Privacy:</strong> We strictly adhere to the Google API Services User Data Policy, ensuring your data is never shared or misused.</li>
             </ul>
-            <p>
-                <em>RisCalc does not access, store, or share your personal private data outside of the explicit features required to run this service. We strictly adhere to Google API Services User Data Policies.</em>
-            </p>
         </section>
-    </main>
+    </div>
 
-    <!-- 5. CRITICAL: Public and Exact Links to Privacy Policy & ToS -->
     <footer>
-        <hr style="margin-top: 40px; border: 0; border-top: 1px solid #ddd;">
-        <p style="text-align: center; color: #666; font-size: 0.9em;">
-            &copy; 2026 RisCalc. All rights reserved. | 
+        <p>&copy; 2026 RisCalc. All rights reserved.</p>
+        <p style="margin-top: 10px;">
             <a href="/privacy.html">Privacy Policy</a> | 
             <a href="/terms.html">Terms of Service</a> | 
             <a href="/delete-account.html">Data Deletion</a> | 
             <a href="mailto:devriscalc@gmail.com">Contact Support</a>
         </p>
     </footer>
+
 </body>
 </html>
