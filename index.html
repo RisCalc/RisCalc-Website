@@ -3,347 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RisCalc - Institutional-Grade Risk Management & Trade Journaling</title>
+    <title>RisCalc | Institutional Risk Terminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1E88E5;
-            --primary-dark: #1565C0;
-            --bg-color: #0A1A2F;
-            --card-bg: #112240;
-            --card-border: #1e3a5f;
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
+            --navy-bg: #0A1A2F;
+            --navy-card: #112240;
+            --electric-blue: #1E88E5;
+            --inst-green: #388E3C;
+            --inst-red: #D32F2F;
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-        .hero {
-            text-align: center;
-            padding: 90px 20px 60px;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -0.025em;
-            background: linear-gradient(to right, #60A5FA, #38BDF8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 14px 32px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 4px 14px rgba(30, 136, 229, 0.4);
-        }
-        .cta-button:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-1px);
-        }
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #F1F5F9;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-        .feature-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 35px 30px;
-            border-radius: 12px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-        .feature-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 15px;
-            color: #F1F5F9;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-        .feature-card ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .feature-card li {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 18px;
-        }
-        .feature-card li::before {
-            content: "•";
-            color: var(--primary);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        .psychology-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 50px 40px;
-            border-radius: 16px;
-            margin-bottom: 60px;
-        }
-        .psychology-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .psych-card {
-            background-color: rgba(10, 26, 47, 0.6);
-            border: 1px solid #1e3a5f;
-            padding: 24px;
-            border-radius: 10px;
-        }
-        .psych-card h4 {
-            color: #60A5FA;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        .pricing-table-container {
-            overflow-x: auto;
-            margin-bottom: 60px;
-        }
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--card-border);
-        }
-        .pricing-table th, .pricing-table td {
-            padding: 16px 24px;
-            text-align: left;
-            border-bottom: 1px solid var(--card-border);
-        }
-        .pricing-table th {
-            background-color: rgba(30, 136, 229, 0.1);
-            color: #F1F5F9;
-            font-size: 1.1rem;
-        }
-        .pricing-table tr:last-child td {
-            border-bottom: none;
-        }
-        .pricing-table td {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        .pricing-table td:first-child {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            background-color: rgba(10, 26, 47, 0.5);
-        }
-        footer p {
-            margin-bottom: 15px;
-        }
-        footer .footer-links a {
-            color: var(--primary);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer .footer-links a:hover {
-            text-decoration: underline;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--navy-bg); color: #ccd6f6; font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .monospace { font-family: 'JetBrains Mono', monospace; color: var(--electric-blue); }
+
+        /* Header */
+        header { padding: 120px 0 80px; text-align: center; }
+        .build-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--electric-blue); border: 1px solid var(--electric-blue); padding: 4px 12px; border-radius: 4px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 900; color: white; letter-spacing: -1.5px; margin-bottom: 20px; }
+        .sub-headline { font-size: 1.25rem; color: #8892b0; max-width: 700px; margin: 0 auto 40px; }
+        
+        .cta-button { display: inline-block; background: var(--electric-blue); color: white; padding: 18px 36px; border-radius: 2px; text-decoration: none; font-weight: bold; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; border: 1px solid rgba(255,255,255,0.1); }
+        .cta-button:hover { background: #1976D2; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        /* Features */
+        .section { padding: 100px 0; border-top: 1px solid var(--glass-border); }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .card { background: var(--navy-card); padding: 40px; border-radius: 4px; border: 1px solid var(--glass-border); position: relative; box-shadow: 0 20px 30px rgba(2, 12, 27, 0.5); }
+        h2 { font-size: 2.25rem; color: white; margin-bottom: 24px; font-weight: 900; }
+        
+        /* Stats Table */
+        .comparison { width: 100%; border-collapse: collapse; margin-top: 50px; font-family: 'JetBrains Mono', monospace; }
+        .comparison th, .comparison td { padding: 20px; text-align: left; border-bottom: 1px solid var(--glass-border); }
+        .comparison th { color: var(--electric-blue); font-size: 0.8rem; }
+        .comparison strong { color: white; }
+
+        /* Tech Proof Block */
+        .tech-proof { margin-top: 100px; padding: 30px; background: rgba(0,0,0,0.2); border-left: 2px solid var(--electric-blue); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #8892b0; }
+        .tech-proof h4 { color: white; margin-bottom: 10px; font-size: 0.9rem; }
+
+        footer { padding: 80px 0; text-align: center; border-top: 1px solid var(--glass-border); }
+        .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 24px; }
+        .footer-links a { color: #8892b0; text-decoration: none; font-size: 0.8rem; }
+        .footer-links a:hover { color: var(--electric-blue); }
+
+        @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Stop Guessing. Start Calculating.</h1>
-        <p>Institutional-Grade Risk Management & Trade Journaling for Professional Traders.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.riscalc.app">Get it on Google Play</a>
-    </div>
-
     <div class="container">
-        
-        <!-- Section 1: Core Value -->
-        <div style="text-align: center; max-width: 750px; margin: 0 auto 60px;">
-            <h2 style="font-size: 2rem; margin-bottom: 16px; color: #F1F5F9;">Trading is 10% Math and 90% Discipline. RisCalc Handles Both.</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem;">Most traders fail because they risk too much on a single "hunch." RisCalc eliminates the guesswork by providing a unified workflow from precise position sizing to deep psychological analysis.</p>
-        </div>
+        <header>
+            <div class="build-tag">VERSION_2.9.0 | NATIVE_KOTLIN</div>
+            <h1>RisCalc Terminal</h1>
+            <p class="sub-headline">Institutional position sizing and trade journaling for professionals. Built for zero-latency execution and mathematical discipline.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.riscalc.app" class="cta-button">ACCESS_ON_GOOGLE_PLAY</a>
+        </header>
 
-        <!-- Section 2: Feature Highlights -->
-        <h2 class="section-title">Professional Edge, Built-In</h2>
-        <p class="section-subtitle">Everything you need to transform raw data into disciplined execution.</p>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>🛡️ Institutional Risk Calculator</h3>
-                <p>Never fumble with a spreadsheet again. Input your equity, risk percentage, and entry price to get your exact stop price and stake-per-pip in seconds.</p>
-                <ul>
-                    <li>Risk Cash vs. Risk %: See exactly how much capital is on the line.</li>
-                    <li>Real-time Compliance: Get warnings when your total open risk exceeds your personal global rules.</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <h3>📓 The Intelligent Trade Journal</h3>
-                <p>Logging is only half the battle. RisCalc turns your raw data into a professional edge.</p>
-                <ul>
-                    <li>Cloud Sync Active: Your data is secured and synced across all your devices instantly.</li>
-                    <li>Audit Integrity: A built-in integrity log ensures your trade history remains accurate and tamper-proof.</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <h3>📊 Advanced Analytics</h3>
-                <p>Go beyond simple win rates. Understand the "Why" behind your equity curve.</p>
-                <ul>
-                    <li>Expectancy & Drawdown: Track your mathematical edge and peak-to-trough performance.</li>
-                    <li>R-Multiple Tracking: Measure your efficiency in capturing market moves.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 3: Psychology Edge -->
-        <div class="psychology-section">
-            <h2 style="font-size: 1.8rem; margin-bottom: 12px; color: #F1F5F9;">Mastering the "Human Element"</h2>
-            <p style="color: var(--text-muted); margin-bottom: 25px; max-width: 800px;">RisCalc is the first journal built with a ranked emotional scale. By identifying your mental state before you click "Buy," you can spot the patterns that lead to "Revenge Trading" or "Early Exits."</p>
-            
-            <p style="font-weight: 600; color: #F1F5F9; margin-bottom: 15px;">Track your performance in every state:</p>
-            
-            <div class="psychology-grid">
-                <div class="psych-card">
-                    <h4>The Danger Zone</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Panic, Anger, and Euphoria.</p>
+        <section class="section">
+            <div class="feature-grid">
+                <div>
+                    <h2>Position Sizing.<br>Recalculated.</h2>
+                    <p>Standard calculators are slow. RisCalc is a terminal. Input your parameters and get exact stake-per-pip sizing and stop levels instantly.</p>
+                    <div class="tech-proof" style="margin-top: 30px;">
+                        <h4 class="monospace">>_ ENGINE_INTEGRITY</h4>
+                        Uses deterministic floating-point models to calculate risk-cash vs. equity. Ensures 100% compliance with your personal global risk rules.
+                    </div>
                 </div>
-                <div class="psych-card">
-                    <h4>The Transition</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Fear, Anxiety, and Hope.</p>
-                </div>
-                <div class="psych-card">
-                    <h4>The Peak State</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Calm, Detachment, and Acceptance.</p>
+                <div class="card">
+                    <div class="monospace" style="font-size: 0.8rem; color: var(--inst-green); margin-bottom: 20px;">// LIVE_CALC_TERMINAL</div>
+                    <div style="margin-bottom: 10px; color: #8892b0; font-size: 0.7rem;">CALCULATED_STOP_PRICE</div>
+                    <div class="monospace" style="font-size: 3rem; color: white;">1.28420</div>
+                    <div style="width: 100%; height: 2px; background: var(--glass-border); margin: 20px 0;">
+                        <div style="width: 40%; height: 100%; background: var(--inst-green);"></div>
+                    </div>
+                    <div class="monospace" style="font-size: 0.8rem; color: var(--inst-green);">STAKE_PER_PIP: £15.00</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Section 4: RisCalc Pro Comparison -->
-        <h2 class="section-title">Unlock Your Full Professional Potential</h2>
-        <p class="section-subtitle">Upgrade to the Professional Toolkit to remove limits and unlock institutional-grade insights.</p>
-        
-        <div class="pricing-table-container">
-            <table class="pricing-table">
+        <section class="section">
+            <div class="feature-grid">
+                <div class="card" style="order: 2;">
+                    <div class="monospace" style="font-size: 0.8rem; color: var(--inst-red); margin-bottom: 20px;">// PSYCHOLOGY_HEATMAP</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div style="padding: 10px; border: 1px solid var(--inst-red); color: var(--inst-red); font-size: 0.7rem;" class="monospace">PANIC_STATE</div>
+                        <div style="padding: 10px; border: 1px solid var(--inst-green); color: var(--inst-green); font-size: 0.7rem;" class="monospace">CALM_STATE</div>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.8rem; color: #8892b0;">The app automatically builds a win-rate profile based on your emotional state at entry.</p>
+                </div>
+                <div style="order: 1;">
+                    <h2>Emotional<br>Intelligence.</h2>
+                    <p>Trading is 90% psychology. RisCalc is the first journal to bridge the gap between PnL and your mental state.</p>
+                    <p style="margin-top: 20px; color: #8892b0;">Rank your state from Panic to Calm. Identify the exact emotions that are leaking your capital.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 style="text-align: center;">Infrastructure Tiering</h2>
+            <table class="comparison">
                 <thead>
-                  <tr>
-                    <th>Features</th>
-                    <th>Always Free</th>
-                    <th>14 Day Trial</th>
-                    <th>RisCalc Pro</th>
-                  </tr>
+                    <tr>
+                        <th>Capability</th>
+                        <th>Standard</th>
+                        <th>Unlimited (Pro)</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Risk Calculator</td>
-                        <td>Unlimited</td>
-                        <td>Unlimited</td>
-                        <td>Unlimited</td>
+                        <td>Risk Terminal</td>
+                        <td>Included</td>
+                        <td><strong>Included</strong></td>
                     </tr>
                     <tr>
                         <td>Journal History</td>
-                        <td>Last 10 Trades</td>
-                        <td>Unlimited History</td>
-                        <td>Unlimited History</td>
+                        <td>10 Trades</td>
+                        <td><strong>Unlimited</strong></td>
                     </tr>
                     <tr>
-                        <td>Cloud Backup</td>
+                        <td>Cloud Data Sync</td>
                         <td>-</td>
-                        <td>Auto-Sync Active</td>
-                        <td>Auto-Sync Active</td>
+                        <td><strong>Active (Firebase)</strong></td>
                     </tr>
                     <tr>
-                        <td>Advanced Stats</td>
-                        <td>Basic Win Rate</td>
-                        <td>Expectancy & Drawdown</td>
-                        <td>Expectancy & Drawdown</td>
-                    </tr>
-                    <tr>
-                        <td>Data Export</td>
+                        <td>Audit Integrity Log</td>
                         <td>-</td>
-                        <td>CSV & Excel Export</td>
-                         <td>CSV & Excel Export</td>
+                        <td><strong>Active</strong></td>
                     </tr>
                     <tr>
-                        <td>Psychology Insights</td>
+                        <td>Advanced Expectancy</td>
                         <td>-</td>
-                        <td>Full Emotion Mapping</td>
-                        <td>Full Emotion Mapping</td>
+                        <td><strong>Full Suite</strong></td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+            <p style="text-align: center; margin-top: 40px; color: var(--electric-blue);" class="monospace">FREE 14-DAY FULL ACCESS TRIAL ON INSTALL</p>
+        </section>
 
+        <footer>
+            <p class="monospace" style="color: white; margin-bottom: 10px;">RisCalc | Built for Discipline.</p>
+            <p>A professional financial instrument. No ads. No data selling. No broker affiliation.</p>
+            <div class="tech-proof" style="max-width: 600px; margin: 40px auto 0; text-align: left;">
+                <strong>MATHEMATICAL_PROOF:</strong> Position sizing utilizes the formula: (Equity * Risk%) / (ABS(Entry - Stop)). All calculations performed locally on-device to ensure sub-millisecond responsiveness at trade execution.
+            </div>
+            <div class="footer-links">
+                <a href="https://riscalc.github.io/RisCalc-Privacy-Policy/">Privacy Policy</a>
+                <a href="mailto:support@riscalc.app">Support & Feedback</a>
+                <a href="#">Data Deletion</a>
+            </div>
+        </footer>
     </div>
-
-    <footer>
-        <p><strong>Designed by Traders. Built for Discipline.</strong></p>
-        <p>RisCalc is committed to your data privacy. No hidden fees. No broker affiliations. Just precision.</p>
-        <div class="footer-links" style="margin-top: 15px;">
-            <a href="/privacy.html">Privacy Policy</a> | 
-            <a href="/terms.html">Terms of Service</a> | 
-            <a href="/delete-account.html">Data Deletion</a> | 
-            <a href="mailto:devriscalc@gmail.com">Support & Feedback</a>
-        </div>
-    </footer>
 
 </body>
 </html>
